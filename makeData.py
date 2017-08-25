@@ -24,7 +24,7 @@ def writeLines(stars, filename):
 
 # make ten thousand random stars
 stars = []
-for i in range(20):
+for i in range(2000):
 	population = random.choice(populations)
 	star = makeStar(population)
 	stars.append(star)
