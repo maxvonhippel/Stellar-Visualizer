@@ -40,24 +40,24 @@
 					<vert>
 						<input type="range" data-orientation="vertical">
 						<output></output>
+						<script>
+							var element = $('input[type="range"]');
+							var output = $('output');
+							function updateOutput(el, val) {
+							  el.textContent = val;
+							}
+							$element
+							  .rangeslider({
+							    polyfill: false,
+							    onInit: function() {
+							      updateOutput($output[0], this.value);
+							    }
+							  })
+							  .on('input', function() {
+							    updateOutput($output[0], this.value);
+							  });
+						 </script>
 					</vert>
-					<script>
-						var $element = $('input[type="range"]');
-						var $output = $('output');
-						function updateOutput(el, val) {
-						  el.textContent = val;
-						}
-						$element
-						  .rangeslider({
-						    polyfill: false,
-						    onInit: function() {
-						      updateOutput($output[0], this.value);
-						    }
-						  })
-						  .on('input', function() {
-						    updateOutput($output[0], this.value);
-						  });
-					  </script>
 				</div>
 				<div class="col col-lg-11">
 					<div id="chart" style="width:90%;height:90%;"></div>
