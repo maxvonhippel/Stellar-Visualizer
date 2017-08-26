@@ -37,5 +37,9 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
       t: 0
     }
   };
-  Plotly.newPlot('chart', data, layout);
+  Plotly.newPlot('chart',
+    data,
+    layout,
+    filename: "styling-names",
+    fileopt: "overwrite");
 });
