@@ -20,15 +20,17 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     type: 'scatter3d'
   }];
   var layout = {
-    title: 'Locations & Ages of White Dwarfs',
-    xaxis: {
-      title: 'U'
-    },
-    yaxis: {
-      title: 'V'
-    },
-    zaxis: {
-      title: 'W'
+    scene: {
+      title: 'Locations & Ages of White Dwarfs',
+      xaxis: {
+        title: 'U'
+      },
+      yaxis: {
+        title: 'V'
+      },
+      zaxis: {
+        title: 'W'
+      }
     },
     margin: {
       l: 0,
@@ -37,9 +39,5 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
       t: 0
     }
   };
-  Plotly.newPlot('chart',
-    data,
-    layout,
-    "styling-names",
-    "overwrite");
+  Plotly.newPlot('chart', data, layout);
 });
