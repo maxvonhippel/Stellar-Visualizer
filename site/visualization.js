@@ -34,4 +34,6 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
   };
   Plotly.newPlot('chart', data, layout);
 });
-console.log('example of ', (11/13), d3.interpolateRdYlBu(11/13).toString());
+console.log('example of ', (11/13), String("\"" +
+        d3.interpolateRdYlBu(11/13).toString()
+        + "\""));
