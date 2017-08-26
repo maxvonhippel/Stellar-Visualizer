@@ -21,7 +21,6 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
   }];
   var layout = {
     scene: {
-      title: 'Locations & Ages of White Dwarfs',
       xaxis: {
         title: 'U'
       },
