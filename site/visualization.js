@@ -40,3 +40,4 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
   };
   Plotly.newPlot('chart', data, layout);
 });
+$('input[type="range"]').rangeslider();
