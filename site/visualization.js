@@ -40,6 +40,6 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
   Plotly.newPlot('chart',
     data,
     layout,
-    filename: "styling-names",
-    fileopt: "overwrite");
+    "styling-names",
+    "overwrite");
 });
