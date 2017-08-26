@@ -8,6 +8,21 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 		<!-- plotly script -->
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<!-- styles -->
+		<style>
+		vert {
+	  		color: #404040;
+	  		display: flex;
+	  		flex-direction: column;
+	  		justify-content: space-around;
+	  		align-items: center;
+	  		padding: 50px;
+		}
+		output {
+		  	font-size: 2em;
+		  	padding: .3em;
+		}
+		</style>
 	</head>
 	<body>
 		<center>
@@ -20,36 +35,27 @@
 			<div class="row">
 				<div class="col col-lg-1">
 					<!-- slider gui element to filter by age -->
-					<input
-						type="range"
-						min="0"
-						max="13"
-						data-rangeslider=""
-						data-orientation="vertical"
-						style="position: absolute;
-							   width: 1px;
-							   height: 1px;
-							   overflow: hidden;
-							   opacity: 0;"
-					>
-					<div
-						class="rangeslider rangeslider--vertical rangeslider--active"
-						id="js-rangeslider-6">
-						<div
-							class="rangeslider__fill"
-							style="height: 20px;"
-						>
-						</div>
-						<div
-							class="rangeslider__handle"
-							style="bottom: 0px;"
-						>
-						</div>
-					</div>
-					<script src="rangeslider.js-2.3.0/rangeslider.min.js"></script>
+					<vert>
+						<input type="range" data-orientation="vertical">
+						<output></output>
+					</vert>
 					<script>
-    					$('input[type="range"]').rangeslider();
-					</script>
+						var $element = $('input[type="range"]');
+						var $output = $('output');
+						function updateOutput(el, val) {
+						  el.textContent = val;
+						}
+						$element
+						  .rangeslider({
+						    polyfill: false,
+						    onInit: function() {
+						      updateOutput($output[0], this.value);
+						    }
+						  })
+						  .on('input', function() {
+						    updateOutput($output[0], this.value);
+						  });
+					  </script>
 				</div>
 				<div class="col col-lg-11">
 					<div id="chart" style="width:90%;height:90%;"></div>
