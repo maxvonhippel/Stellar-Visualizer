@@ -1,4 +1,3 @@
-var getColor = d3.scale.category20();
 Plotly.d3.csv('../stars.csv', function(err, rows) {
   function unpack(rows, key) {
     return rows.map(function(row) {
@@ -11,7 +10,7 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     z:unpack(rows, 'w'),
     mode: 'markers',
     marker: {
-    size: getColor(unpack(rows, 't')/13),
+    size: d3.interpolateRdYlBu(unpack(rows, 't')/13),
     line: {
       color: 'rgba(217, 217, 217, 0.14)',
       width: 0.5
@@ -28,4 +27,4 @@ var layout = {margin: {
   }};
 Plotly.newPlot('chart', data, layout);
 });
-console.log('example of ', (11/13), getColor(11/13));
+console.log('example of ', (11/13), d3.interpolateRdYlBu(11/13));
