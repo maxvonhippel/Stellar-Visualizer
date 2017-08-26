@@ -13,7 +13,7 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
       cmin: 0,
       cmax: 13,
       color: unpack(rows, 't'),
-      colorscale: 'Rainbow',
+      colorscale: 'Electric',
       size: 4,
       opacity: 0.8
     },
