@@ -56,6 +56,6 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     tooltips: true
   });
   slider.noUiSlider.on('update', function(values, handle) {
-    console.log(data.points[0]);
+    console.log(data);
   });
 });
