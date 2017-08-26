@@ -1,3 +1,4 @@
+var color = d3.scaleOrdinal(d3.schemeRdYlBu);
 Plotly.d3.csv('../stars.csv', function(err, rows) {
   function unpack(rows, key) {
     return rows.map(function(row) {
@@ -5,13 +6,12 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     });
   }
   var data = [{
-    // id:unpack(rows, 'id'),
     x:unpack(rows, 'u'),
     y:unpack(rows, 'v'),
     z:unpack(rows, 'w'),
     mode: 'markers',
     marker: {
-    size: unpack(rows, 't'),
+    size: color(unpack(rows, 't')/13),
     line: {
       color: 'rgba(217, 217, 217, 0.14)',
       width: 0.5
