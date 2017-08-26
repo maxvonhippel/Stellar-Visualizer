@@ -10,7 +10,7 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     z:unpack(rows, 'w'),
     mode: 'markers',
     marker: {
-      color: d3.interpolateRdYlBu(unpack(rows, 't')/13).toString(),
+      color: "rgb(95, 147, 195)",//d3.interpolateRdYlBu(unpack(rows, 't')/13).toString(),
       size: 2,
       line: {
         color: d3.interpolateRdYlBu(unpack(rows, 't')/13).toString(),
