@@ -10,10 +10,10 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     z:unpack(rows, 'w'),
     mode: 'markers',
     marker: {
-      color: "\"" + d3.interpolateRdYlBu(unpack(rows, 't')/13).toString() + "\"",
+      color: unpack(rows, 't'),
       size: 2,
       line: {
-        color: "\"" + d3.interpolateRdYlBu(unpack(rows, 't')/13).toString() + "\"",
+        color: 'white',
         width: 0.5
       },
       opacity: 0.8
@@ -30,6 +30,3 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
   };
   Plotly.newPlot('chart', data, layout);
 });
-console.log('example of ', (11/13), String("\"" +
-        d3.interpolateRdYlBu(11/13).toString()
-        + "\""));
