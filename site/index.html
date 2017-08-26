@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<!-- slider css -->
+		<link href="nouislider.min.css" rel="stylesheet">
 		<!-- plotly script -->
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	</head>
@@ -20,15 +22,19 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js"></script>
 		<div class="container">
 			<div class="row">
-				<div class="col col-lg-1">
-					<!-- slider gui element to filter by age -->
-					<!-- TODO -->
-				</div>
-				<div class="col col-lg-11">
+				<div class="col col-lg-12">
 					<div id="chart" style="width:90%;height:90%;"></div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col col-lg-12">
+					<!-- slider gui element to filter by age -->
+					<slider></slider>
+				</div>
+			</div>
 		</div>
+		<!-- slider script -->
+		<script src="nouislider.min.js"></script>
 		<!-- my visualization script -->
 		<script src="visualization.js"></script>
 		<!-- bootstrap scripts -->
