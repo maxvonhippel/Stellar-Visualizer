@@ -10,7 +10,10 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     z:unpack(rows, 'w'),
     mode: 'markers',
     marker: {
+      cmin: 0,
+      cmax: 13,
       color: unpack(rows, 't'),
+      colorscale: 'Rainbow',
       size: 4,
       opacity: 0.8
     },
