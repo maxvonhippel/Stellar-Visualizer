@@ -54,10 +54,7 @@ noUiSlider.create(slider, {
     stepped: true,
     density: 4
   },
-  tooltips: true,
-  format: wNumb({
-    decimals: 0
-  })
+  tooltips: true
 });
 slider.noUiSlider.on('update', function(values, handle) {
   console.log(values);
