@@ -8,7 +8,7 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     x:unpack(rows, 'u'),
     y:unpack(rows, 'v'),
     z:unpack(rows, 'w'),
-    hoverinfo:"U: " + x + "\nV: " + y + "\nW: " + z + "\nT: " + unpack(rows, 't'),
+    hoverinfo:"U: " + unpack(rows, 'u') + "\nV: " + unpack(rows, 'v') + "\nW: " + unpack(rows, 'w') + "\nT: " + unpack(rows, 't'),
     mode: 'markers',
     marker: {
       cmin: 0,
