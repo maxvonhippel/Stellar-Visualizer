@@ -1,4 +1,4 @@
-var getColor = d3.scaleOrdinal(d3.schemeRdYlBu);
+var getColor = d3.scale.category20();
 Plotly.d3.csv('../stars.csv', function(err, rows) {
   function unpack(rows, key) {
     return rows.map(function(row) {
