@@ -11,11 +11,7 @@ Plotly.d3.csv('../stars.csv', function(err, rows) {
     mode: 'markers',
     marker: {
       color: unpack(rows, 't'),
-      size: 2,
-      line: {
-        color: 'white',
-        width: 0.5
-      },
+      size: 4,
       opacity: 0.8
     },
     type: 'scatter3d'
