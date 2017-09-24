@@ -40,7 +40,7 @@ function createText2D(text, color, font, size, segW, segH)
 }
 // Render onto page
 var renderer = new THREE.WebGLRenderer({antialias: true});
-var w = document.body.clientWidth - 300;
+var w = document.body.clientWidth * 0.5;
 renderer.setSize(w, w);
 document.body.appendChild(renderer.domElement);
 // Style the render
