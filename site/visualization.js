@@ -141,7 +141,7 @@ for (var i=0; i<pointCount; i++) {
   var y = x*0.8+Math.random() * 20 - 10;
   var z = x*0.7+Math.random() * 30 - 15;
   pointGeo.vertices.push(new THREE.Vertex(new THREE.Vector3(x,y,z)));
-  pointGeo.colors.push(new THREE.Color().setHSV(
+  pointGeo.colors.push(new THREE.Color().setHSL(
     (x+50)/100, (z+50)/100, (y+50)/100));
 }
 var points = new THREE.ParticleSystem(pointGeo, mat);
