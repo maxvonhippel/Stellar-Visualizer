@@ -7,7 +7,7 @@ renderer.setClearColor(0xEEEEEE, 1);
 renderer.clear();
 // Set up plot
 var scatterPlot = new THREE.Object3D();
-var mat = new THREE.ParticleBasicMaterial(
+var mat = new THREE.PointsMaterial(
   {vertexColors: true, size: 1.5});
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(45, 1, 1, 10000);
@@ -65,7 +65,7 @@ var scatterPlot = new THREE.Object3D();
 scene.add(scatterPlot);
 // Set rotation and render scatter plot
 scatterPlot.rotation.y = 0.5;
-function v(x,y,z){ return new THREE.Vertex(new THREE.Vector3(x,y,z)); }
+function v(x,y,z){ return new THREE.Vector3(x,y,z); }
 // Draw boundaries geometry to scatter plot      
 var lineGeo = new THREE.Geometry();
 lineGeo.vertices.push(
@@ -140,7 +140,7 @@ for (var i=0; i<pointCount; i++) {
   var x = Math.random() * 100 - 50;
   var y = x*0.8+Math.random() * 20 - 10;
   var z = x*0.7+Math.random() * 30 - 15;
-  pointGeo.vertices.push(new THREE.Vertex(new THREE.Vector3(x,y,z)));
+  pointGeo.vertices.push(new THREE.Vector3(x,y,z));
   pointGeo.colors.push(new THREE.Color().setHSL(
     (x+50)/100, (z+50)/100, (y+50)/100));
 }
