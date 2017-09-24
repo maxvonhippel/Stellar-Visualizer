@@ -1,10 +1,4 @@
-// Set up threejs renderer
 // Based on fiddle here: http://jsfiddle.net/joequant/fvSrq/
-var renderer = new THREE.WebGLRenderer({antialias: true});
-renderer.setSize(500,500);
-document.body.appendChild(renderer.domElement);
-renderer.setClearColor(0xEEEEEE, 1);
-renderer.clear();
 // Set up plot
 var scatterPlot = new THREE.Object3D();
 var mat = new THREE.PointsMaterial(
