@@ -51,7 +51,7 @@ var h = document.body.clientHeight;
 renderer.setSize(w, h);
 document.body.appendChild(renderer.domElement);
 // Style the render
-renderer.setClearColorHex(0xEEEEEE, 1.0);
+renderer.setClearColor(0xEEEEEE, 1);
 // Position the camera
 var camera = new THREE.PerspectiveCamera( 45, w/h, 1, 10000 );
 camera.position.z = 200;
