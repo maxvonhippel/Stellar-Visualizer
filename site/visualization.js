@@ -41,7 +41,7 @@ function createText2D(text, color, font, size, segW, segH)
 // Render onto page
 var renderer = new THREE.WebGLRenderer({antialias: true});
 var w = document.body.clientWidth;
-var h = document.body.clientHeight;
+var h = Math.max(document.body.clientHeight, 800);
 renderer.setSize(w, h);
 document.body.appendChild(renderer.domElement);
 // Style the render
@@ -103,27 +103,27 @@ var line = new THREE.Line(lineGeo, lineMat);
 line.type = THREE.Lines;
 scatterPlot.add(line);
 
-var titleX = createText2D('-X');
+var titleX = createText2D('-U');
 titleX.position.x = -60;
 scatterPlot.add(titleX);
 
-var titleX = createText2D('X');
+var titleX = createText2D('U');
 titleX.position.x = 60;
 scatterPlot.add(titleX);
 
-var titleX = createText2D('-Y');
+var titleX = createText2D('-V');
 titleX.position.y = -60;
 scatterPlot.add(titleX);
 
-var titleX = createText2D('Y');
+var titleX = createText2D('V');
 titleX.position.y = 60;
 scatterPlot.add(titleX);
 
-var titleX = createText2D('-Z');
+var titleX = createText2D('-W');
 titleX.position.z = -60;
 scatterPlot.add(titleX);
 
-var titleX = createText2D('Z');
+var titleX = createText2D('W');
 titleX.position.z = 60;
 scatterPlot.add(titleX);
 // Get count of points and draw
