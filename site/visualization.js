@@ -143,9 +143,9 @@ Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
   step: function(row) 
   {
     console.log("Row:", row.data);
-    var u = row.data[0];
-    var v = row.data[1];
-    var w = row.data[2];
+    var u = row.data[1];
+    var v = row.data[2];
+    var w = row.data[3];
     pointGeo.vertices.push(new THREE.Vector3(u,v,w));
     pointGeo.colors.push(new THREE.Color().setHSL(
       (u+50)/100, (w+50)/100, (v+50)/100));
