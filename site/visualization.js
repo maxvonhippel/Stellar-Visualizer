@@ -203,22 +203,22 @@ onmessage = function(ev) {
   paused = (ev.data == 'pause');
 };
 // Set up the slider
-var slider = document.getElementById('slider');
-noUiSlider.create(slider, {
-  start: [5, 10],
-  connect: true,
-  step: 0.5,
-  range: {
-    'min': 0,
-    'max': 13
-  },
-  pips: {
-    mode: 'steps',
-    stepped: true,
-    density: 4
-  },
-  tooltips: true
-});
-slider.noUiSlider.on('update', function(values, handle) {
-  console.log(data.marker);
-});
+// var slider = document.getElementById('slider');
+// noUiSlider.create(slider, {
+//   start: [5, 10],
+//   connect: true,
+//   step: 0.5,
+//   range: {
+//     'min': 0,
+//     'max': 13
+//   },
+//   pips: {
+//     mode: 'steps',
+//     stepped: true,
+//     density: 4
+//   },
+//   tooltips: true
+// });
+// slider.noUiSlider.on('update', function(values, handle) {
+//   console.log(data.marker);
+// });
