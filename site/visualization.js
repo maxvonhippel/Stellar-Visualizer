@@ -148,7 +148,7 @@ Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
     var w = row.data[2];
     pointGeo.vertices.push(new THREE.Vector3(u,v,w));
     pointGeo.colors.push(new THREE.Color().setHSL(
-      (x+50)/100, (z+50)/100, (y+50)/100));
+      (u+50)/100, (w+50)/100, (v+50)/100));
   },
   complete: function() 
   {
