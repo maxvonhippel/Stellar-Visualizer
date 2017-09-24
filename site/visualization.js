@@ -3,7 +3,7 @@
 var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(500,500);
 document.body.appendChild(renderer.domElement);
-renderer.setClearColorHex(0xEEEEEE, 1.0);
+renderer.setClearColor(0xEEEEEE, 1);
 renderer.clear();
 // Set up plot
 var scatterPlot = new THREE.Object3D();
