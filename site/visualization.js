@@ -61,41 +61,16 @@ scatterPlot.rotation.y = 0.5;
 function v(x,y,z){ return new THREE.Vector3(x,y,z); }
 // Draw boundaries geometry to scatter plot      
 var lineGeo = new THREE.Geometry();
-lineGeo.vertices.push(
-  v(-50, 0, 0), v(50, 0, 0),
-  v(0, -50, 0), v(0, 50, 0),
-  v(0, 0, -50), v(0, 0, 50),
-
-  v(-50, 50, -50), v(50, 50, -50),
-  v(-50, -50, -50), v(50, -50, -50),
-  v(-50, 50, 50), v(50, 50, 50),
-  v(-50, -50, 50), v(50, -50, 50),
-
-  v(-50, 0, 50), v(50, 0, 50),
-  v(-50, 0, -50), v(50, 0, -50),
-  v(-50, 50, 0), v(50, 50, 0),
-  v(-50, -50, 0), v(50, -50, 0),
-
-  v(50, -50, -50), v(50, 50, -50),
-  v(-50, -50, -50), v(-50, 50, -50),
-  v(50, -50, 50), v(50, 50, 50),
-  v(-50, -50, 50), v(-50, 50, 50),
-
-  v(0, -50, 50), v(0, 50, 50),
-  v(0, -50, -50), v(0, 50, -50),
-  v(50, -50, 0), v(50, 50, 0),
-  v(-50, -50, 0), v(-50, 50, 0),
-
-  v(50, 50, -50), v(50, 50, 50),
-  v(50, -50, -50), v(50, -50, 50),
-  v(-50, 50, -50), v(-50, 50, 50),
-  v(-50, -50, -50), v(-50, -50, 50),
-
-  v(-50, 0, -50), v(-50, 0, 50),
-  v(50, 0, -50), v(50, 0, 50),
-  v(0, 50, -50), v(0, 50, 50),
-  v(0, -50, -50), v(0, -50, 50)
-);
+Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
+  download: true,
+  step: function(row) {
+    console.log("Row:", row.data);
+    lineGeo.vertices.push(v(row.data));
+  },
+  complete: function() {
+    console.log("All done!");
+  }
+});
 // Style the plot axes
 var lineMat = new THREE.LineBasicMaterial({color: 0x808080, lineWidth: 1});
 var line = new THREE.Line(lineGeo, lineMat);
