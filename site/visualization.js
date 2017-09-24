@@ -41,13 +41,12 @@ function createText2D(text, color, font, size, segW, segH)
 // Render onto page
 var renderer = new THREE.WebGLRenderer({antialias: true});
 var w = document.body.clientWidth;
-var h = Math.max(document.body.clientHeight, 800);
-renderer.setSize(w, h);
+renderer.setSize(w, w);
 document.body.appendChild(renderer.domElement);
 // Style the render
 renderer.setClearColor(0xEEEEEE, 1);
 // Position the camera
-var camera = new THREE.PerspectiveCamera( 45, w/h, 1, 10000 );
+var camera = new THREE.PerspectiveCamera( 45, 1, 1, 10000 );
 camera.position.z = 200;
 camera.position.x = 0;
 camera.position.y = 75;
