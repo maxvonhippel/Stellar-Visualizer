@@ -71,6 +71,41 @@ Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
     console.log("All done!");
   }
 });
+lineGeo.vertices.push(
+  v(-50, 0, 0), v(50, 0, 0),
+  v(0, -50, 0), v(0, 50, 0),
+  v(0, 0, -50), v(0, 0, 50),
+
+  v(-50, 50, -50), v(50, 50, -50),
+  v(-50, -50, -50), v(50, -50, -50),
+  v(-50, 50, 50), v(50, 50, 50),
+  v(-50, -50, 50), v(50, -50, 50),
+
+  v(-50, 0, 50), v(50, 0, 50),
+  v(-50, 0, -50), v(50, 0, -50),
+  v(-50, 50, 0), v(50, 50, 0),
+  v(-50, -50, 0), v(50, -50, 0),
+
+  v(50, -50, -50), v(50, 50, -50),
+  v(-50, -50, -50), v(-50, 50, -50),
+  v(50, -50, 50), v(50, 50, 50),
+  v(-50, -50, 50), v(-50, 50, 50),
+
+  v(0, -50, 50), v(0, 50, 50),
+  v(0, -50, -50), v(0, 50, -50),
+  v(50, -50, 0), v(50, 50, 0),
+  v(-50, -50, 0), v(-50, 50, 0),
+
+  v(50, 50, -50), v(50, 50, 50),
+  v(50, -50, -50), v(50, -50, 50),
+  v(-50, 50, -50), v(-50, 50, 50),
+  v(-50, -50, -50), v(-50, -50, 50),
+
+  v(-50, 0, -50), v(-50, 0, 50),
+  v(50, 0, -50), v(50, 0, 50),
+  v(0, 50, -50), v(0, 50, 50),
+  v(0, -50, -50), v(0, -50, 50)
+);
 // Style the plot axes
 var lineMat = new THREE.LineBasicMaterial({color: 0x808080, lineWidth: 1});
 var line = new THREE.Line(lineGeo, lineMat);
@@ -102,16 +137,25 @@ titleX.position.z = 60;
 scatterPlot.add(titleX);
 // Get count of points and draw
 // TODO HERE <-------- from CSV data
-var pointCount = 10000;
 var pointGeo = new THREE.Geometry();
-for (var i=0; i<pointCount; i++) {
-  var x = Math.random() * 100 - 50;
-  var y = x*0.8+Math.random() * 20 - 10;
-  var z = x*0.7+Math.random() * 30 - 15;
-  pointGeo.vertices.push(new THREE.Vector3(x,y,z));
-  pointGeo.colors.push(new THREE.Color().setHSL(
-    (x+50)/100, (z+50)/100, (y+50)/100));
-}
+Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
+  download: true,
+  step: function(row) 
+  {
+    console.log("Row:", row.data);
+    var u = row.data[0];
+    var v = row.data[1];
+    var w = row.data[2];
+    pointGeo.vertices.push(new THREE.Vector3(u,v,w));
+    pointGeo.colors.push(new THREE.Color().setHSL(
+      (x+50)/100, (z+50)/100, (y+50)/100));
+  },
+  complete: function() 
+  {
+    console.log("All done!");
+  }
+});
+
 var points = new THREE.ParticleSystem(pointGeo, mat);
 scatterPlot.add(points);
 scene.add(scatterPlot);
