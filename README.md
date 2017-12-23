@@ -11,11 +11,12 @@ The folder structure is as follows:
 
 `Generate`: Code relating to the generation of synthetic data
 
-`________/generate_synthetic_data.py`: `Python3` script which generates synthetic data
+* `________/generate_synthetic_data.py`: `Python3` script which generates synthetic data
 
 `Visualize`: Code relating to the visualization of data (synthetic or real)
 
-`________/`: *WIP*
+* `________/index.html`: `HTML` boilerplate for visualization output
+* `________/index.js`: `Javascript` code for interactivity on visualization output
 
 ## Getting started
 
