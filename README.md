@@ -21,7 +21,7 @@ The folder structure is as follows:
 
 The synthetic data generation tool is WIP.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
 
-## Attribution
+## Attribution etc.
 
 This project relies on the following open-source tools:
 
