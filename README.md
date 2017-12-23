@@ -40,8 +40,6 @@ stellar_visualizer@1.0.0 your_name/stellarVisualizer
 
 ## Status
 
-The synthetic data generation tool is WIP.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
-
-More documentation is coming RE the actual use of this tool.
+The synthetic data generation tool is *WIP*.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
 
 This project is made open-source and freely available under [BSD-3-Clause license](LICENSE).
