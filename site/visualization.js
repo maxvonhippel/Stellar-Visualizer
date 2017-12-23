@@ -142,7 +142,6 @@ Papa.parse("http://mxvh.pl/stellarVisualization/stars.csv", {
   download: true,
   step: function(row) 
   {
-    console.log("Row:", row.data);
     var u = row.data[1];
     var v = row.data[2];
     var w = row.data[3];
