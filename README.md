@@ -26,19 +26,7 @@ Install the [Node Package Manager](http://npmjs.com/) (NPM) if you don't already
 npm install
 ````
 
-If successful, you should see something more or less like this in your shell:
-
-````
-~/stellarVisualizer(master*) » npm install
-stellar_visualizer@1.0.0 your_name/stellarVisualizer
-└─┬ vis@4.21.0
-  ├── emitter-component@1.1.1
-  ├── hammerjs@2.0.8
-  ├── keycharm@0.2.0
-  ├── moment@2.20.1
-  ├── propagating-hammerjs@1.4.6
-  └── papaparse@4.3.6
-````
+(More documentation coming on how to actually use the code.)
 
 ## Status
 
