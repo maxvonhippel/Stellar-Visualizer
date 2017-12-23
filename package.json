@@ -1,0 +1,30 @@
+{
+  "name": "stellar_visualizer",
+  "version": "1.0.0",
+  "description": "Tool for visualization and exploration of Gaia data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxvonhippel/stellarVisualization.git"
+  },
+  "keywords": [
+    "stellar",
+    "visualization",
+    "Gaia",
+    "data",
+    "3d",
+    "stars"
+  ],
+  "author": "Max von Hippel",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/maxvonhippel/stellarVisualization/issues"
+  },
+  "dependencies": {
+    "vis": "4.21.0"
+  },
+  "homepage": "https://github.com/maxvonhippel/stellarVisualization#readme"
+}

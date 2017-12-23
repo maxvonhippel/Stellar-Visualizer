@@ -17,14 +17,31 @@ The folder structure is as follows:
 
 `________/`: *WIP*
 
+## Getting started
+
+Install the [Node Package Manager](http://npmjs.com/) (NPM) if you don't already have it.  Then, in the working directory, run:
+
+````
+npm install
+````
+
+If successful, you should see something more or less like this in your shell:
+
+````
+~/stellarVisualizer(master*) » npm install
+stellar_visualizer@1.0.0 your_name/stellarVisualizer
+└─┬ vis@4.21.0
+  ├── emitter-component@1.1.1
+  ├── hammerjs@2.0.8
+  ├── keycharm@0.2.0
+  ├── moment@2.20.1
+  └── propagating-hammerjs@1.4.6
+````
+
 ## Status
 
 The synthetic data generation tool is WIP.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
 
-## Attribution etc.
-
-This project relies on the following open-source tools:
-
-1. [VisJS](http://visjs.org) is used to draw 3D graphs like [this one](http://visjs.org/examples/graph3d/playground/index.html).
+More documentation is coming RE the actual use of this tool.
 
 This project is made open-source and freely available under [BSD-3-Clause license](LICENSE).
