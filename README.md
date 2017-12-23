@@ -36,7 +36,8 @@ stellar_visualizer@1.0.0 your_name/stellarVisualizer
   ├── hammerjs@2.0.8
   ├── keycharm@0.2.0
   ├── moment@2.20.1
-  └── propagating-hammerjs@1.4.6
+  ├── propagating-hammerjs@1.4.6
+  └── papaparse@4.3.6
 ````
 
 ## Status

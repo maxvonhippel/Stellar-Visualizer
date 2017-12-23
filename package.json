@@ -24,7 +24,8 @@
     "url": "https://github.com/maxvonhippel/stellarVisualization/issues"
   },
   "dependencies": {
-    "vis": "4.21.0"
+    "vis": "4.21.0",
+    "papaparse": "4.3.6"
   },
   "homepage": "https://github.com/maxvonhippel/stellarVisualization#readme"
 }
