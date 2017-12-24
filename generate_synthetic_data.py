@@ -221,6 +221,8 @@ def generate_n_data(n, filename):
 			population = random.choice(populations)
 			star = makeStar(population)
 			stars.append(star)
-		return write_lines(stars, filename)
+		return write_lines(stars, filename) # (*)
 	except Exception as ex:
-		return ex
+		return ex # (**)
+	# No need to return True here, because no matter what we returned
+	# already at locations (*) or (**) in the code above
