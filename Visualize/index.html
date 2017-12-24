@@ -8,7 +8,6 @@
   </style>
   <script type="text/javascript" src="../node_modules/vis/dist/vis.js"></script>
   <script type="text/javascript" src="../node_modules/papaparse/papaparse.min.js"></script>
-  <script type="text/javascript" src="index.js"></script>
   
 </head>
 
@@ -38,14 +37,6 @@
   		</div>
   	</div>
   </div>
-  <script>
-  function handleFileSelect(evt) {
-  	var files = evt.target.files;
-    // only select first one
-    drawVisualization(files[0]);
-  }
-  document.getElementById('file').addEventListener('change', 
-  													handleFileSelect, false);
-  </script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
