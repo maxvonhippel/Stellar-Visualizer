@@ -12,7 +12,7 @@ import csv
 import uuid
 import numpy as np
 import scipy.linalg as slin
-from math import cos, sin
+from math import cos, sin, radians
 
 # ------------------------- Assumptions -------------------------
 
@@ -46,33 +46,36 @@ Dec_NGP = 27.4
 # Position angle of North Galactic Pole, in degrees, relative to the great
 # semicircle passing through the North Galactic Pole and the zero Galactic
 # longitude
-theta_o = 123
+theta_o = 123.0
 
-# Transformation matrix used in equatorial_to_uvw
-# I am given a constant (below) and a formula to get that constant (below that)
-# ... but they don't match.  Which one is right?
+cos_theta_o = cos(radians(theta_o))
+sin_theta_o = sin(radians(theta_o))
+cos_Dec_NGP = cos(radians(Dec_NGP))
+sin_Dec_NGP = sin(radians(Dec_NGP))
+sin_RA_NGP  = sin(radians(RA_NGP))
+cos_RA_NGP  = cos(radians(RA_NGP))
 
-T = np.matrix([[-0.06699, -0.87276, -0.48354],
-			   [ 0.49273, -0.45035,  0.74458],
-			   [-0.86760, -0.18837,  0.46020]])
+T = (np.matrix([[cos_theta_o,  sin_theta_o,            0], 
+	 		   [ sin_theta_o, -cos_theta_o,            0],
+	 		   [           0, 			 0,            1]]) * 
+	np.matrix([[-sin_Dec_NGP,            0,  cos_Dec_NGP], 
+			   [           0,           -1,            0],
+			   [ cos_Dec_NGP,            0,  sin_Dec_NGP]]) * 
+	np.matrix([[  cos_RA_NGP,   sin_RA_NGP,            0], 
+			   [  sin_RA_NGP,  -cos_RA_NGP,            0],
+			   [		   0, 			 0, 		   1]]))
 
+# T should yield: np.matrix([[-0.06699, -0.87276, -0.48354],
+# 			   				 [ 0.49273, -0.45035,  0.74458],
+# 			 			     [-0.86760, -0.18837,  0.46020]])
 
-# T = (np.matrix([[cos(theta_o),  sin(theta_o),            0], 
-# 	 		   [ sin(theta_o), -cos(theta_o),            0],
-# 	 		   [            0, 			   0,            1]]) * 
-# 	np.matrix([[-sin(Dec_NGP),             0, cos(Dec_NGP)], 
-# 			   [            0,            -1,            0],
-# 			   [ cos(Dec_NGP),             0, sin(Dec_NGP)]]) * 
-# 	np.matrix([[  cos(RA_NGP),   sin(RA_NGP),            0], 
-# 			   [  sin(RA_NGP),  -cos(RA_NGP),            0],
-# 			   [			0, 			   0, 			 1]]))
 
 # Second transformation matrix, based on RA and Dec, used in equatorial_to_uvw
 # as well as in uvw_to_equatorial
 def A(RA, Dec):
-	return np.matrix([[cos(RA) * cos(Dec), -sin(RA), -cos(RA) * sin(Dec)],
-				      [sin(RA) * cos(Dec),  cos(RA), -sin(RA) * sin(Dec)],
-				      [          sin(Dec), 		  0, 		    cos(Dec)]])
+	return np.matrix([[cos(RA) * cos(Dec),   -sin(RA),   -cos(RA) * sin(Dec)],
+				      [sin(RA) * cos(Dec),    cos(RA),   -sin(RA) * sin(Dec)],
+				      [          sin(Dec), 		    0, 		        cos(Dec)]])
 
 
 # ------------------------- Methods -------------------------
