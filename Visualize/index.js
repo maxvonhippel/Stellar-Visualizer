@@ -13,7 +13,7 @@ function drawVisualization(csv_file) {
 		header: true,
 		step: function(row) {
 			var row_data = row.data[0];
-			console.log("ROW.i ", row_data.i);
+			console.log("ROW.w ", row_data.w);
 			data.add({id:row_data.i,
 					  x:row_data.u,
 					  y:row_data.v,
@@ -21,13 +21,11 @@ function drawVisualization(csv_file) {
 					  style:"#00ffff"
 					});
 		},
-		complete: function() {
-			console.log("DONE");
-		}
+		complete: function() { console.log("DONE"); }
 	});
     var options = {
-        width:  '500px',
-        height: '552px',
+        width:  '600px',
+        height: '600px',
         style: 'surface',
         showPerspective: true,
         showGrid: true,

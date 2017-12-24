@@ -34,18 +34,6 @@ halo 	   = {'u': [0,     50],
 # These are the hypothetical populations of the data.
 populations = [thin_disk, thick_disk, halo]
 
-# Transformation matrix used in equatorial_to_uvw
-T = np.matrix([[-0.06699, -0.87276, -0.48354],
-			   [ 0.49273, -0.45035,  0.74458],
-			   [-0.86760, -0.18837,  0.46020]])
-
-# Second transformation matrix, based on RA and Dec, used in equatorial_to_uvw
-# as well as in uvw_to_equatorial
-def A(RA, Dec):
-	return np.matrix([[cos(RA) * cos(Dec), -sin(RA), -cos(RA) * sin(Dec)],
-				      [sin(RA) * cos(Dec),  cos(RA), -sin(RA) * sin(Dec)],
-				      [sin(Dec), 		    0, 		  cos(Dec)]])
-
 # Constants employed in conversion furmulae
 # Hypothetically, we will be using these to determine the T matrix, but that
 # formulation has still not been brought into the actual code-base
@@ -59,6 +47,32 @@ Dec_NGP = 27.4
 # semicircle passing through the North Galactic Pole and the zero Galactic
 # longitude
 theta_o = 123
+
+# Transformation matrix used in equatorial_to_uvw
+# I am given a constant (below) and a formula to get that constant (below that)
+# ... but they don't match.  Which one is right?
+
+T = np.matrix([[-0.06699, -0.87276, -0.48354],
+			   [ 0.49273, -0.45035,  0.74458],
+			   [-0.86760, -0.18837,  0.46020]])
+
+
+# T = (np.matrix([[cos(theta_o),  sin(theta_o),            0], 
+# 	 		   [ sin(theta_o), -cos(theta_o),            0],
+# 	 		   [            0, 			   0,            1]]) * 
+# 	np.matrix([[-sin(Dec_NGP),             0, cos(Dec_NGP)], 
+# 			   [            0,            -1,            0],
+# 			   [ cos(Dec_NGP),             0, sin(Dec_NGP)]]) * 
+# 	np.matrix([[  cos(RA_NGP),   sin(RA_NGP),            0], 
+# 			   [  sin(RA_NGP),  -cos(RA_NGP),            0],
+# 			   [			0, 			   0, 			 1]]))
+
+# Second transformation matrix, based on RA and Dec, used in equatorial_to_uvw
+# as well as in uvw_to_equatorial
+def A(RA, Dec):
+	return np.matrix([[cos(RA) * cos(Dec), -sin(RA), -cos(RA) * sin(Dec)],
+				      [sin(RA) * cos(Dec),  cos(RA), -sin(RA) * sin(Dec)],
+				      [          sin(Dec), 		  0, 		    cos(Dec)]])
 
 
 # ------------------------- Methods -------------------------
@@ -82,6 +96,7 @@ def uvw_to_equatorial(star):
 	RA = RA if RA != 360 else 0
 	# Dec - Declination, the latitude-like coordinate on the celestial sphere
 	# Dec is uniform [-90, 90]
+	# When I get a chance need to update this to be cos dec distribution
 	Dec = random.uniform(-90, 90)
 	# From u, v, w we will get:
 	conversion = slin.inv(T) * slin.inv(A(RA,Dec)) * np.matrix([[u],[v],[w]])
@@ -95,10 +110,9 @@ def uvw_to_equatorial(star):
 	# Now that we have a prlx value, we can get pm_RA and pm_Dec
 	pm_RA = pm_RA_over_prlx * prlx
 	pm_Dec = pm_Dec_over_prlx * prlx
-	# V_rad
-	# Nor sure how to choose this value for now, so for the time being let's
-	# set to 100.  Can change later once we get a better estimation scheme.
-	V_rad = 100
+	# V_rad - Gaussian distribution is good enough for now.  This value is in
+	# km / sec.  We will likely update with better approximation in the future.
+	V_rad = random.gauss(0, 50)
 	return (i, RA, Dec, pm_RA, pm_Dec, prlx, V_rad, t)
 
 # equatorial_to_uvw
