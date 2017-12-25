@@ -5,7 +5,8 @@
 # estimates of the sort of data which we will get from Gaia.
 #
 # Authored August 24 2017 by Max von Hippel
-# Last edited December 22 2017 by Max & Ted von Hippel
+# Edited December 22 2017 by Max & Ted von Hippel
+# Edited December 25 2017 by Max von Hippel
 
 import random
 import csv
@@ -219,7 +220,11 @@ def generate_n_data(n, filename):
 		stars = []
 		for i in range(n):
 			population = random.choice(populations)
-			star = makeStar(population)
+			uvw_star = generate_uvw(population)
+			equatorial_star = uvw_to_equatorial(uvw_star)
+			(i, RA, Dec, pm_RA, pm_Dec, prlx, V_rad, t) = equatorial_star
+			(i, u, v, w, t) = uvw_star
+			star = (i, RA, Dec, pm_RA, pm_Dec, prlx, V_rad, t, u, v, w)
 			stars.append(star)
 		return write_lines(stars, filename) # (*)
 	except Exception as ex:
