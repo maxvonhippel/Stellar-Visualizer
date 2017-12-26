@@ -38,6 +38,14 @@ You can replace the path to write the file to (`Visualize/data.csv`) with whatev
 
 To use the Visualize tool, open the Visualize folder and then open [index.html](Visualize/index.html) in your browser of choice.  It is tested on and developed for Chrome, but should work on most modern browsers.  It's a bit bare-bones at the moment, but more functionality is coming.
 
+To use the Generate tool in MATLAB, `cd` in MATLAB into the Generate directory and then access the Generate functions by name using the MATLAb `py` module.  For example:
+
+````
+star_tuple = py.generate_synthetic_data.generate_uvw(py.generate_synthetic_data.thin_disk);
+````
+
+Note that for now this will remain a Pythonic variable.  I'll figure out later how to case these Python lists and tuples into native MATLAB types, and update the docs accordingly.
+
 ## Status
 
 The synthetic data generation tool is basically complete, although I plan to improve it over time.  The only major missing feature at this point is MATLAB integration, which I'm working on.
