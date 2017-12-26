@@ -23,18 +23,16 @@ function drawVisualization(csv_file) {
 		header: true,
 		step: function(row) {
 			var row_data = row.data[0];
-			var i = parseInt(row_data.i);
-			var x = parseInt(row_data.u);
-			var y = parseInt(row_data.v);
-			var z = parseInt(row_data.w);
-			var style = (i % 2 == 0) ? 
+			var id = parseInt(row_data.i);
+			var x  = parseInt(row_data.u);
+			var y  = parseInt(row_data.v);
+			var z  = parseInt(row_data.w);
+			// Can change style selection later to be more directly informative
+			// (a 4th dimension of some sort, maybe galactic age or something).
+			var style = (id % 2 == 0) ? 
 						sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2)) : "#00ffff";
 			style = parseInt(style);
-			var data_row = {id:i,
-					  		 x:x,
-					  		 y:y,
-					  		 z:z,
-					  		 style:style};
+			var data_row = {id:id, x:x, y:y, z:z, style:style};
 			data.add(data_row);
 		},
 		complete: function() { 

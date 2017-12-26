@@ -33,3 +33,7 @@ npm install
 The synthetic data generation tool is *WIP*.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
 
 This project is made open-source and freely available under [BSD-3-Clause license](LICENSE).
+
+## Citations
+
+This section will get cleaned up and made more science-y and formal and whatnot later.  For now, we only have one reference, [which is this](http://adsabs.harvard.edu/full/1987AJ.....93..864J).
