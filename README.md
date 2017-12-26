@@ -36,7 +36,7 @@ print(success)
 
 You can replace the path to write the file to (`Visualize/data.csv`) with whatever you want.  Likewise, you can change the `1000` parameter in the function call to be whatever integer `n` you want, in order to get back `n` many synthetically generated stars.
 
-To use the Visualize tool, open the Visualize folder and then open [index.html](Visualize/index.html) in your browser of choice.  It is tested on and developed for Chrome, but should work on most modern browsers.  It's a bit bare-bones at the moment, but more functionality is coming.
+To use the Visualize tool, open the Visualize folder and then open [index.html](Visualize/index.html) in your browser of choice.  It is tested on and developed for Chrome, but should work on most modern browsers.  It's a bit bare-bones at the moment, but more functionality is coming.  You can find a sample CSV file at [`Visualize/data.csv`](Visualize/data.csv), which you can select with the "choose file" button, or you can make your own CSV file with the Generate code and use that.  Feel free to over-write the demo CSV file I provide you with; it is not a dependency for anything.
 
 To use the Generate tool in MATLAB, `cd` in MATLAB into the Generate directory and then access the Generate functions by name using the MATLAb `py` module.  For example:
 
@@ -52,10 +52,9 @@ The synthetic data generation tool is basically complete, although I plan to imp
 
 The visualization tool is in progress and looks pretty cool, but a lot of work remains, in particular for:
 
-1. Labeling of axes and datapoints
-2. Selection of datapoints
-3. Conic filtering of datapoints
-4. Selection of axes (for coordinate system)
+1. Labeling of datapoints, with a table that will show information about a specific datapoint when you hover over or select it
+2. Conic filtering of datapoints
+3. More (as well as more sensible/deliberate) coordinate system options
 
 ## Citations
 
