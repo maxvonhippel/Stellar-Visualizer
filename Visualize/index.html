@@ -2,8 +2,6 @@
 <html>
 <head>
   <title>Stellar Visualization</title>
-  <!-- Primarily rely on Bootstrap for CSS stuff for now -->
-  <style>body {font: 12pt arial;}</style>
   <!-- We use viz js for the 3d graph -->
   <script type="text/javascript"
   		  src="../node_modules/vis/dist/vis.js">
@@ -23,7 +21,8 @@
   </script>
 </head>
 	<body>
-		<input type="file" id="file" name="file" single/>
+		<!-- This is ugly and should be replaced later with Bootstrap -->
+		<input type="file" id="file" name="file" class="form-control" single/>
 		<div class='row'>
 		  	<div class='col-lg-12' id="visualization">
 		  		<!-- This size can change in the future, possibly to % based -->
