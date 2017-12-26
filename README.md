@@ -26,7 +26,18 @@ Install the [Node Package Manager](http://npmjs.com/) (NPM) if you don't already
 npm install
 ````
 
-(More documentation coming on how to actually use the code.)
+From the working directory, to generate a synthetic data file, do the following:
+
+````
+python
+from Generate.generate_synthetic_data import *
+success = generate_n_data(1000, 'Visualize/data.csv')
+print(success)
+````
+
+You can replace the path to write the file to (`Visualize/data.csv`) with whatever you want.  Likewise, you can change the `1000` parameter in the function call to be whatever integer `n` you want, in order to get back `n` many synthetically generated stars.
+
+To use the Visualize tool, open the Visualize folder and then open [index.html](Visualize/index.html) in your browser of choice.  It is tested on and developed for Chrome, but should work on most modern browsers.  It's a bit bare-bones at the moment, but more functionality is coming.
 
 ## Status
 

@@ -229,8 +229,3 @@ def generate_n_data(n, filename):
 		return ex # (**)
 	# No need to return True here, because no matter what we returned
 	# already at locations (*) or (**) in the code above
-
-# Main code, for people who just want to make a data file immediately
-# Later I can put this in actual main block with CLI argument support.
-success = generate_n_data(1000, '../Visualize/data.csv')
-print(success)

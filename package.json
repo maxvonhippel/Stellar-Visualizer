@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "vis": "4.21.0",
-    "papaparse": "4.3.6"
+    "papaparse": "4.3.6",
+    "bootstrap": "3.3.7"
   },
   "homepage": "https://github.com/maxvonhippel/stellarVisualization#readme"
 }
