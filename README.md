@@ -16,7 +16,7 @@ The folder structure is as follows:
 `Visualize`: Code relating to the visualization of data (synthetic or real)
 
 * `________/index.html`: `HTML` boilerplate for visualization output
-* `________/index.js`: `Javascript` code for interactivity on visualization output
+* `________/index.js`: `Javascript` code for interactivity of visualization output
 
 ## Getting started
 
@@ -26,10 +26,9 @@ Install the [Node Package Manager](http://npmjs.com/) (NPM) if you don't already
 npm install
 ````
 
-From the working directory, to generate a synthetic data file, do the following:
+From the working directory, in your Python interpreter of choice, to generate a synthetic data file, do the following:
 
 ````
-python
 from Generate.generate_synthetic_data import *
 success = generate_n_data(1000, 'Visualize/data.csv')
 print(success)
@@ -41,10 +40,17 @@ To use the Visualize tool, open the Visualize folder and then open [index.html](
 
 ## Status
 
-The synthetic data generation tool is *WIP*.  Once that is completed, I will begin working on the visualization code in Javascript and further documentation.
+The synthetic data generation tool is basically complete, although I plan to improve it over time.  The only major missing feature at this point is MATLAB integration, which I'm working on.
 
-This project is made open-source and freely available under [BSD-3-Clause license](LICENSE).
+The visualization tool is in progress and looks pretty cool, but a lot of work remains, in particular for:
+
+1. Labeling of axes and datapoints
+2. Selection of datapoints
+3. Conic filtering of datapoints
+4. Selection of axes (for coordinate system)
 
 ## Citations
+
+This project is made open-source and freely available under [BSD-3-Clause license](LICENSE).
 
 This section will get cleaned up and made more science-y and formal and whatnot later.  For now, we only have one reference, [which is this](http://adsabs.harvard.edu/full/1987AJ.....93..864J).
